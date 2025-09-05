@@ -19,6 +19,71 @@ import warnings
 logger = logging.getLogger(__name__)
 
 
+def analyze_morphogen_correlations(adata, regulons, morphogen_genes, method='spearman'):
+    """
+    Analyze correlations between regulon activities and morphogen gene expression.
+    
+    Parameters:
+    -----------
+    adata : AnnData
+        Expression data
+    regulons : list
+        List of regulon objects
+    morphogen_genes : list
+        List of morphogen gene names
+    method : str
+        Correlation method ('spearman' or 'pearson')
+        
+    Returns:
+    --------
+    pd.DataFrame
+        Correlation results
+    """
+    logger.info(f"Analyzing correlations between {len(regulons)} regulons and {len(morphogen_genes)} morphogen genes")
+    
+    results = []
+    
+    # For each regulon, correlate with morphogen genes
+    for regulon in regulons:
+        regulon_name = regulon.name
+        
+        # Calculate regulon activity (simple mean of target genes)
+        target_genes = [gene for gene in regulon.gene2weight.keys() if gene in adata.var_names]
+        
+        if len(target_genes) == 0:
+            logger.warning(f"No target genes found for regulon {regulon_name}")
+            continue
+            
+        # Calculate mean expression of target genes as proxy for regulon activity
+        regulon_activity = adata[:, target_genes].X.mean(axis=1)
+        if hasattr(regulon_activity, 'A1'):  # Handle sparse matrices
+            regulon_activity = regulon_activity.A1
+        
+        # Correlate with each morphogen
+        for morphogen in morphogen_genes:
+            if morphogen in adata.var_names:
+                morphogen_expr = adata[:, morphogen].X
+                if hasattr(morphogen_expr, 'A1'):  # Handle sparse matrices
+                    morphogen_expr = morphogen_expr.A1
+                
+                # Calculate correlation
+                if method == 'spearman':
+                    corr, pval = spearmanr(regulon_activity, morphogen_expr)
+                else:
+                    corr, pval = pearsonr(regulon_activity, morphogen_expr)
+                
+                results.append({
+                    'regulon': regulon_name,
+                    'morphogen': morphogen,
+                    'correlation': corr,
+                    'p_value': pval,
+                    'n_targets': len(target_genes),
+                    'method': method
+                })
+    
+    return pd.DataFrame(results)
+
+
 def prepare_morphogen_metadata(adata: sc.AnnData, 
                              morphogen_list: List[str],
                              time_variable: str = "Time",

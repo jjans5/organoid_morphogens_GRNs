@@ -246,40 +246,22 @@ organoid_pyscenic_pipeline/
 - **Stage 3**: Morphogen-regulon networks (hundreds of interactions)
 - **Stage 4**: Publication-ready correlation matrices and visualizations
 
-## 🧬 Biological Interpretation
-
-The pipeline identifies:
-1. **Core regulatory programs** (consensus regulons)
-2. **Morphogen-responsive networks** (GRNBoost interactions)
-3. **Cell line-specific differences** (comparative analysis)
-4. **Developmental trajectories** (timing-dependent correlations)
-
 ## 📝 Citation
 
 Please cite the following in your publications:
 
+**Primary reference**:
+```
+Decoding morphogen patterning of human neural organoids with a multiplexed single-cell transcriptomic screen
+Fátima Sanchís-Calleja, Akanksha Jain, Zhisong He, Ryoko Okamoto, Charlotte Rusimbi, Pedro Rifes, Gaurav Singh Rathore, Malgorzata Santel, Jasper Janssens, Makiko Seimiya, Jonas Simon Fleck, Agnete Kirkeby, J. Gray Camp, Barbara Treutlein
+https://www.biorxiv.org/content/10.1101/2024.02.08.579413v1.full
+```
+
+**Methods**:
 ```
 pySCENIC: Aibar et al. (2017). SCENIC: single-cell regulatory network inference and clustering. Nature Methods.
 GRNBoost2: Moerman et al. (2019). GRNBoost2 and Arboreto: efficient and scalable inference of gene regulatory networks.
 ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make changes with appropriate tests
-4. Submit a pull request
-
-## 📄 License
-
-[Add your license information here]
-
-## 📞 Support
-
-For questions or issues:
-- Check the troubleshooting section above
-- Review pySCENIC documentation
-- Open an issue in this repository
 
 ---
 

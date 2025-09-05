@@ -16,7 +16,7 @@ import pandas as pd
 import scanpy as sc
 
 # Add utils to path
-sys.path.append(os.path.dirname(__file__))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 from pyscenic_utils import run_pyscenic_workflow
 
 def load_config(config_path):

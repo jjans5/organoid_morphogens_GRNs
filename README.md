@@ -134,7 +134,8 @@ python -c "import pyscenic; print(f'pySCENIC {pyscenic.__version__} installed')"
 - `generate_combinations.ipynb`: Create region-seed parameter combinations
 - `run_multi_pyscenic.py`: Main pySCENIC execution script
 - `submit_multi_pyscenic.sh`: SLURM submission script
-- `pyscenic_utils.py`: Utility functions for data processing
+
+**Utilities**: Core functions are in `src/pyscenic_utils.py` for data processing
 
 **Parameters**:
 - **Subsampling**: 5000 cells per condition (stratified)

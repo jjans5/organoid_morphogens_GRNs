@@ -88,7 +88,7 @@ python -c "import pyscenic; print(f'pySCENIC {pyscenic.__version__} installed')"
 
 ## 🚀 Quick Start
 
-1. **Prepare your data** (AnnData format in `data/`):
+1. **Prepare the data** (AnnData format in `data/`):
    ```
    data/
    ├── exp1_counts_for_scenic_H1.h5ad

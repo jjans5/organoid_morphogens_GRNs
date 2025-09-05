@@ -1,0 +1,20 @@
+# pySCENIC Database Paths Configuration
+
+# Transcription factor database
+tf_database: "/cluster/project/treutlein/USERS/jjans/resources/resources.aertslab.org/cistarget/tf_lists/allTFs_hg38.txt"
+
+# Ranking databases directory
+ranking_database: "/cluster/project/treutlein/USERS/jjans/resources/resources.aertslab.org/cistarget/databases/homo_sapiens/hg38/refseq_r80/mc_v10_clust/gene_based"
+
+# Motif annotation database
+motif_database: "/cluster/project/treutlein/USERS/jjans/resources/resources.aertslab.org/cistarget/motif2tf/motifs-v10nr_clust-nr.hgnc-m0.001-o0.0.tbl"
+
+# Alternative databases (uncomment and modify paths as needed)
+# For mouse data:
+# tf_database_mouse: "/path/to/allTFs_mm.txt"
+# ranking_database_mouse: "/path/to/mouse_ranking_databases/"
+# motif_database_mouse: "/path/to/mouse_motifs.tbl"
+
+# Custom databases:
+# custom_tf_list: "/path/to/custom_tf_list.txt"
+# custom_ranking_db: "/path/to/custom_ranking_db/"

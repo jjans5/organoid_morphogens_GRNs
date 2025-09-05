@@ -1,0 +1,47 @@
+# pySCENIC Configuration File
+
+# Input data settings
+data:
+  input_file: "data/exp1_counts_for_scenic_fil.h5ad"
+  cell_lines: ["H1", "H9", "WTC", "WIBJ2"]
+  
+# Subsampling parameters
+subsampling:
+  subsample_column: "RNA_snn_res.1"  # Column to group cells for subsampling
+  subsample_ncells: 600              # Number of cells per group
+  stratification_column: "cell_line"  # Column for stratified sampling
+  
+# pySCENIC execution parameters
+pyscenic:
+  n_workers: 30                       # Number of parallel workers
+  memory_limit: "8e9"                 # Memory limit per worker (8GB)
+  method: "multiproc"                 # "multiproc" or "dask"
+  
+# Consensus building parameters
+consensus:
+  n_seeds: 10                         # Number of random seeds for consensus
+  occurrence_threshold: 0             # Minimum occurrence across runs (0-1)
+  min_regulon_size: 5                 # Minimum number of genes in regulon
+  
+# Morphogen analysis parameters
+morphogens:
+  morphogen_list: ["FGF8", "SHH", "CHIR", "RA"]
+  time_variable: "Time"
+  medium_variable: "medium"
+  correlation_method: "pearson"       # "pearson", "spearman"
+  significance_threshold: 0.05
+  
+# Output settings
+output:
+  results_dir: "results"
+  save_intermediate: true
+  compress_results: true
+
+# HPC/SLURM settings (if applicable)
+slurm:
+  nodes: 1
+  ntasks: 33
+  cpus_per_task: 1
+  mem_per_cpu: "15G"
+  time: "24:00:00"
+  partition: null                     # Set to your cluster partition if needed

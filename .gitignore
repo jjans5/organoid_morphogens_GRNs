@@ -48,6 +48,44 @@ nosetests.xml
 coverage.xml
 *.cover
 *.py,cover
+
+# Prevent auto-generated empty files
+MISSION_COMPLETE.md
+PROJECT_SUMMARY.md
+PUBLICATION_READY.md
+WORKFLOW_OVERVIEW.md
+TEST_RESULTS.md
+setup.py
+config/
+notebooks/
+scripts/
+test_*.py
+!tests/test_*.py
+
+# Test result files and directories
+tests/test_results*/
+*test_results*/
+test_results/
+correlation_*.png
+correlation_*.csv
+network_*.png
+network_*.csv
+pipeline_*.png
+pipeline_*.csv
+*.results/
+
+# pySCENIC specific output files
+*.pkl
+*.loom
+pyscenic_logs/
+results/
+networks/
+regulons/
+
+# Prevent specific auto-generated files
+01_pyscenic_runs/pyscenic_utils.py
+src/morphogen_analysis.py
+src/visualization.py
 .hypothesis/
 .pytest_cache/
 

@@ -11,7 +11,7 @@ This directory contains validation tests for the pySCENIC pipeline.
 
 ## Test Results
 
-Test results are stored in the `test_results*/` subdirectories for reference.
+Test results are generated during test runs but are not stored in the repository to keep it clean. Results will be created in temporary directories during testing.
 
 ## Running Tests
 
